@@ -1,0 +1,66 @@
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    src: url("fonts/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto Light";
+    font-style: normal;
+    font-weight: 300;
+    src: url("fonts/Roboto-Light.ttf");
+}
+
+@font-face {
+    font-family: "Roboto Bold";
+    font-style: normal;
+    font-weight: 700;
+    src: url("fonts/Roboto-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Roboto ExtraBold";
+    font-style: normal;
+    font-weight: 900;
+    src: url("fonts/Roboto-ExtraBold.ttf");
+}
+
+.dashboard-container {
+    -fx-background-color: #466BA4;
+}
+
+.dashboard-button {
+    -fx-font-family: "Roboto";
+    -fx-font-size: 16;
+    -fx-background-color: #466BA4;
+    -fx-background-radius: 0px;
+    -fx-text-fill: #FFFFFF;
+}
+
+.dashboard-button:hover {
+    -fx-background-color: #0d4cb8;
+}
+
+.dashboard-button:pressed {
+    -fx-background-color: #76b2fa;
+}
+
+.dashboard-button:selected {
+    -fx-background-color: #76b2fa;
+    -fx-border-color: #D9A21B;
+    -fx-border-width: 0px 0px 0px 6px;
+    -fx-font-family: "Roboto Bold";
+    -fx-text-fill: #FFFFFF;
+}
+
+.main-window-title {
+    -fx-font-family: "Roboto Bold";
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 24;
+}
+
+.root {
+    -fx-base: #d9f0ff;
+    -fx-focus-color: #5C5CCC;
+}

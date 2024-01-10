@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="maintenanceTicketsViewAnchorPane" prefHeight="700.0" prefWidth="1030.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.assetplus.javafx.controllers.TicketsPageController">
+   <children>
+      <VBox layoutX="0.5" layoutY="12.666666984558105" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <GridPane alignment="CENTER" prefHeight="50.0" prefWidth="1030.0" style="-fx-background-color: #fff;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="672.0" minWidth="200.0" prefWidth="592.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="301.0" minWidth="10.0" prefWidth="135.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="204.0" minWidth="10.0" prefWidth="131.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" prefWidth="107.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" prefWidth="154.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="55.333343505859375" minHeight="10.0" prefHeight="43.333343505859375" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="74.0" prefWidth="250.0" text="Maintenance Tickets" textAlignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="hotelStaffIDTextField" onAction="#sortByStaffIDButton" prefWidth="136.0" promptText="hotel staff email" GridPane.columnIndex="2" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Filter by raiser:" textAlignment="CENTER" wrappingWidth="127.7236328125" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Filter by date:" GridPane.columnIndex="3" />
+                  <DatePicker fx:id="datePicker" onAction="#sortByDate" GridPane.columnIndex="4" />
+               </children>
+            </GridPane>
+            <TableView fx:id="ticketsTable" editable="true" prefHeight="590.0" prefWidth="1030.0">
+              <columns>
+                <TableColumn fx:id="id" prefWidth="67.8063440322876" text="Ticket ID" />
+                  <TableColumn fx:id="status" prefWidth="74.80633544921875" text="Status" />
+                  <TableColumn fx:id="raisedOnDate" prefWidth="103.17424011230469" text="Date" />
+                  <TableColumn fx:id="description" prefWidth="124.82577514648438" text="Description" />
+                  <TableColumn fx:id="floorNumber" prefWidth="88.85818481445312" text="Floor Number" />
+                  <TableColumn fx:id="roomNumber" prefWidth="96.03237915039062" text="Room Number" />
+                  <TableColumn fx:id="assetName" prefWidth="83.5291748046875" text="Asset Name" />
+                  <TableColumn fx:id="imageURLs" prefWidth="86.1806640625" text="Image URLs" />
+                  <TableColumn fx:id="raisedByEmail" prefWidth="99.8193359375" text="Raised by" />
+                  <TableColumn fx:id="priority" prefWidth="71.62554931640625" text="Priority" />
+                  <TableColumn fx:id="fixedByEmail" prefWidth="107.09954833984375" text="Fixer" />
+                  <TableColumn fx:id="timeToResolve" prefWidth="106.90057373046875" text="Time to Resolve" />
+                  <TableColumn fx:id="approvalRequired" prefWidth="84.0" text="Approval Required" />
+                  <TableColumn fx:id="expectLifeSpanInDays" prefWidth="84.0" text="Life Span" />
+                  <TableColumn fx:id="notes" prefWidth="850.0" text="Notes" />
+              </columns>
+            </TableView>
+            <GridPane prefHeight="99.0" prefWidth="1030.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="startButton" mnemonicParsing="false" onAction="#startClicked" text="Start Selected Ticket" GridPane.columnIndex="1" />
+                  <Button fx:id="approveWork" mnemonicParsing="false" onAction="#approveSelectedTicket" style="-fx-background-color: #9867AD;" text="Approve Work" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button fx:id="disapproveWork" mnemonicParsing="false" onAction="#disapproveSelectedTicket" style="-fx-background-color: #7D69AE;" text="Disapprove Work" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Button fx:id="completeButton" mnemonicParsing="false" onAction="#completeClicked" style="-fx-background-color: #C7609C;" text="Complete Selected Ticket" GridPane.rowIndex="1" />
+                  <Button fx:id="startButton" mnemonicParsing="false" onAction="#startClicked" style="-fx-background-color: #B163A7;" text="Start Selected Ticket" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="addTicketButton" mnemonicParsing="false" onAction="#addButtonClicked" style="-fx-background-color: #466BA4;" text="Add Ticket" />
+                  <Button fx:id="updateSelectedButton" mnemonicParsing="false" onAction="#updateButtonClicked" style="-fx-background-color: #0090C2;" text="Update Selected Ticket" GridPane.columnIndex="1" />
+                  <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteButtonClicked" style="-fx-background-color: #00B3C5;" text="Delete Selected Ticket" GridPane.columnIndex="2" />
+                  <Button fx:id="imagesButton" mnemonicParsing="false" onAction="#goAddDelImage" style="-fx-background-color: #00D2AD;" text="Add/Delete Images" GridPane.columnIndex="3" />
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

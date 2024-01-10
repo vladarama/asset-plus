@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="ReviewMaintenanceTicketPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1030.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.assetplus.javafx.controllers.ReviewMaintenanceTicket">
+   <children>
+      <BorderPane prefHeight="100.0" prefWidth="1030.0" AnchorPane.bottomAnchor="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Update Maintenance Ticket" wrappingWidth="328.93603515625" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+         </center>
+      </BorderPane>
+      <Pane layoutX="1.0" layoutY="610.0" prefHeight="90.0" prefWidth="1030.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="cancelButton" layoutX="809.0" layoutY="642.0" mnemonicParsing="false" onAction="#cancelButtonClicked" prefHeight="31.0" prefWidth="79.0" text="Cancel">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="updateButton" layoutX="921.0" layoutY="642.0" mnemonicParsing="false" onAction="#updateClicked" prefHeight="31.0" prefWidth="79.0" text="Update">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <SplitPane dividerPositions="0.5057544757033248" layoutX="1.0" layoutY="100.0" prefHeight="526.0" prefWidth="1030.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="580.0" prefWidth="591.0">
+               <children>
+                  <Pane prefHeight="83.0" prefWidth="516.0">
+                     <children>
+                        <Text layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Raised:" textAlignment="CENTER" wrappingWidth="192.48876953125">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Text>
+                        <DatePicker fx:id="dateField" layoutX="258.0" layoutY="29.0" prefHeight="31.0" prefWidth="207.0" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="11.0" layoutY="171.0" prefHeight="289.0" prefWidth="494.0">
+                     <children>
+                        <TextField fx:id="descriptionField" layoutY="37.0" prefHeight="270.0" prefWidth="494.0" />
+                        <Text layoutX="151.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:" textAlignment="CENTER" wrappingWidth="192.48876953125">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="6.0" layoutY="62.0" prefHeight="90.0" prefWidth="505.0">
+                     <children>
+                        <Text layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ticket:" textAlignment="CENTER" wrappingWidth="250.48876953125">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="idField" editable="false" layoutX="250.0" layoutY="30.0" prefHeight="31.0" prefWidth="207.0" promptText="Id" />
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Pane layoutY="143.0" prefHeight="90.0" prefWidth="505.0">
+                     <children>
+                        <Text layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image:" textAlignment="CENTER" wrappingWidth="250.48876953125">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="imageField" layoutX="250.0" layoutY="30.0" prefHeight="31.0" prefWidth="207.0" promptText="URL" />
+                     </children>
+                  </Pane>
+                  <Pane layoutY="215.0" prefHeight="73.0" prefWidth="494.0">
+                     <children>
+                        <Text layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assigned:" textAlignment="CENTER" wrappingWidth="250.48876953125">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="assignedField" layoutX="250.0" layoutY="21.0" prefHeight="31.0" prefWidth="207.0" promptText="Email" />
+                     </children>
+                  </Pane>
+                  <Pane layoutY="288.0" prefHeight="73.0" prefWidth="505.0">
+                     <children>
+                        <Text layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Priority:" textAlignment="CENTER" wrappingWidth="250.48876953125">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Text>
+                        <ChoiceBox fx:id="prioritySelect" layoutX="250.0" layoutY="24.0" prefHeight="26.0" prefWidth="221.0" />
+                     </children>
+                  </Pane>
+                  <Pane layoutY="367.0" prefHeight="73.0" prefWidth="494.0">
+                     <children>
+                        <Text layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Estimate:" textAlignment="CENTER" wrappingWidth="250.48876953125">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Text>
+                        <ChoiceBox fx:id="timeEstimateSelect" layoutX="252.0" layoutY="31.0" prefHeight="26.0" prefWidth="221.0" />
+                     </children>
+                  </Pane>
+                  <CheckBox fx:id="requireApprovalSelect" layoutX="253.0" layoutY="475.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="242.0" text="Manager Approval">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </CheckBox>
+                  <Pane layoutY="78.0" prefHeight="66.0" prefWidth="505.0">
+                     <children>
+                        <Text layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Asset:" textAlignment="CENTER" wrappingWidth="250.48876953125">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="assetNumberField" layoutX="250.0" layoutY="18.0" prefHeight="31.0" prefWidth="207.0" promptText="Number" />
+                     </children>
+                  </Pane>
+                  <Pane layoutY="14.0" prefHeight="66.0" prefWidth="505.0">
+                     <children>
+                        <Text layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Raiser:" textAlignment="CENTER" wrappingWidth="250.48876953125">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="raiserField" layoutX="250.0" layoutY="18.0" prefHeight="31.0" prefWidth="207.0" promptText="Email" />
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

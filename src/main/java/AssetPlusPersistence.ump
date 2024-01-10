@@ -1,0 +1,50 @@
+class AssetPlus {
+    public void reinitialize() {
+        User.reinitializeUniqueEmail(getManager(), getEmployees(), getGuests());
+        MaintenanceTicket.reinitializeUniqueId(getMaintenanceTickets());
+        SpecificAsset.reinitializeUniqueAssetNumber(getSpecificAssets());
+        AssetType.reinitializeUniqueName(getAssetTypes());
+    }
+}
+
+class User { // separate manager, guests, employees? Can use getAllUser from util in controller?
+    public static void reinitializeUniqueEmail(Manager manager, List<Employee> employees, List<Guest> guests) {
+        usersByEmail.clear();
+        if (manager != null) {
+            usersByEmail.put(manager.getEmail(), manager);
+        }
+        for (Employee employee : employees) {
+            usersByEmail.put(employee.getEmail(), employee);
+        }
+        for (Guest guest : guests) {
+            usersByEmail.put(guest.getEmail(), guest);
+        }
+    }
+}
+
+class MaintenanceTicket {
+    public static void reinitializeUniqueId(List<MaintenanceTicket> tickets) {
+        maintenanceticketsById.clear();
+        for (MaintenanceTicket ticket : tickets) {
+            maintenanceticketsById.put(ticket.getId(), ticket);
+        }
+    }
+}
+
+class SpecificAsset {
+    public static void reinitializeUniqueAssetNumber(List<SpecificAsset> assets) {
+        specificassetsByAssetNumber.clear();
+        for (SpecificAsset asset : assets) {
+            specificassetsByAssetNumber.put(asset.getAssetNumber(), asset);
+        }
+    }
+}
+
+class AssetType {
+    public static void reinitializeUniqueName(List<AssetType> assetTypes) {
+        assettypesByName.clear();
+        for (AssetType type : assetTypes) {
+            assettypesByName.put(type.getName(), type);
+        }
+    }
+}

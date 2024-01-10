@@ -1,0 +1,151 @@
+/* import fonts */
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    src: url("fonts/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto Light";
+    font-style: normal;
+    font-weight: 300;
+    src: url("fonts/Roboto-Light.ttf");
+}
+
+@font-face {
+    font-family: "Roboto Bold";
+    font-style: normal;
+    font-weight: 700;
+    src: url("fonts/Roboto-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Roboto ExtraBold";
+    font-style: normal;
+    font-weight: 900;
+    src: url("fonts/Roboto-ExtraBold.ttf");
+}
+
+.table-view .table-cell {
+    -fx-font-family: "Roboto";
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #E1F1FF;
+    -fx-background-insets: 0 11px 0 0;
+    -fx-padding: 0 0 5px 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .table-cell {
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+}
+
+.table-row-cell:hover {
+    -fx-text-background-color: #C7609C;
+}
+
+/* .table-row-cell:odd {
+    -fx-background-color: #93f9b911;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+
+.table-row-cell:even {
+    -fx-background-color: #1dbbdd11;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+} */
+
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .virtual-flow .scroll-bar .increment-button,
+.table-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+
+.table-view .virtual-flow .scroll-bar:vertical .thumb {
+    -fx-background-color: #E1F1FF;
+}
+
+.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color: #E1F1FF;
+}
+
+.text-field {
+    -fx-font-family: "Roboto";
+}
+
+.label {
+    -fx-font-family: "Roboto";
+}
+
+/*
+ * global button
+ */
+.button {
+    -fx-font-size: 16;
+    -fx-font-family: "Roboto Bold";
+    -fx-text-fill: #FFF;
+    -fx-pref-height: 30px;
+    -fx-base: rgb(76, 133, 255);
+    -fx-background-radius: 30;
+    -fx-background-insets: 0, 1, 1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 3, 0.0, 0, 3);
+}
+
+/*
+ * All tabpanes
+ */
+.tab-pane {
+    -fx-tab-min-height: 40px;
+    -fx-tab-max-height: 40px;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #FFF;
+}
+
+.tab-pane .tab {
+    -fx-padding: 0px 40px 0px 40px;
+    -fx-background-insets: 0 0 0 0, 0, 0;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-background-color: #FFF;
+}
+
+.tab-pane .tab:selected {
+    -fx-padding: 0px 40px -3px 40px;
+    -fx-background-color: #FFF;
+    -fx-border-color: rgb(76, 133, 255);
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.tab-pane .tab .tab-label {
+    -fx-font-family: "Roboto Bold";
+    -fx-font-size: 20;
+    -fx-text-fill: #909099;
+    -fx-alignment: CENTER;
+}
+
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: rgb(76, 133, 255);
+}
+
+.root {
+    -fx-base: #FFF;
+    -fx-focus-color: rgb(76, 133, 255);
+}

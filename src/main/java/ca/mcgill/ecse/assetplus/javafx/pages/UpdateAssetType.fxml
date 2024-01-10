@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="updateAssetTypeAnchorPane" prefHeight="700.0" prefWidth="1030.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.assetplus.javafx.controllers.UpdateAssetTypeController">
+   <children>
+      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1030.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="128.66668701171875" minHeight="0.0" prefHeight="57.0" valignment="CENTER" />
+          <RowConstraints maxHeight="247.33332316080725" minHeight="0.0" prefHeight="67.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="220.00003051757812" minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="220.00003051757812" minHeight="10.0" prefHeight="58.666646321614564" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="220.00003051757812" minHeight="10.0" prefHeight="63.33335367838538" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="220.00003051757812" minHeight="10.0" prefHeight="63.33335367838538" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Update Asset Type" GridPane.halignment="LEFT">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Asset Type Name: " textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Expected Lifespan: " GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="cancelUpdateAssetType" mnemonicParsing="false" onAction="#cancelUpdateAssetTypeClicked" text="Cancel" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="updateAssetType" mnemonicParsing="false" onAction="#updateAssetTypeClicked" text="Update" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <TextField fx:id="updateName" maxWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="updateExpectedLifespan" layoutX="525.0" layoutY="120.0" maxWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

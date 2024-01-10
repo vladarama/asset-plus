@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="addAssetAnchorPane" prefHeight="700.0" prefWidth="1030.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.assetplus.javafx.controllers.AddAssetController">
+   <children>
+      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1030.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="128.66668701171875" minHeight="0.0" prefHeight="57.0" valignment="CENTER" />
+          <RowConstraints maxHeight="247.33332316080725" minHeight="0.0" prefHeight="67.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="220.00003051757812" minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="220.00003051757812" minHeight="10.0" prefHeight="58.666646321614564" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="220.00003051757812" minHeight="10.0" prefHeight="63.33335367838538" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="220.00003051757812" minHeight="10.0" prefHeight="63.33335367838538" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="220.00003051757812" minHeight="10.0" prefHeight="63.33335367838538" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Room Number: " GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Add Asset" GridPane.halignment="LEFT">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Asset Type: " textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Floor Number: " GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Purchase Date: " GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="addAssetType" maxWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="addFloorNumber" maxWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="addRoomNumber" maxWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="addAssetNumber" maxWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Asset Number: " textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="addAsset" mnemonicParsing="false" onAction="#addAssetClicked" text="Add" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="cancelAddAsset" mnemonicParsing="false" onAction="#cancelAddAssetClicked" text="Cancel" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <DatePicker fx:id="addPurchaseDate" prefHeight="26.0" prefWidth="199.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

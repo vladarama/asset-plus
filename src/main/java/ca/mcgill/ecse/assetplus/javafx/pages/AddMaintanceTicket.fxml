@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="addMaintanceTicketAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1030.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.assetplus.javafx.controllers.AddMaintanceTicket">
+   <children>
+      <BorderPane prefHeight="100.0" prefWidth="1030.0" AnchorPane.bottomAnchor="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add Maintance Ticket" wrappingWidth="275.93603515625" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+         </center>
+      </BorderPane>
+      <Pane layoutX="6.0" layoutY="326.0" prefHeight="90.0" prefWidth="1013.0">
+         <children>
+            <Text layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Asset:" textAlignment="CENTER" wrappingWidth="506.48876953125">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <TextField fx:id="assetNumberField" layoutX="514.0" layoutY="32.0" prefHeight="26.0" prefWidth="418.0" promptText="Number" />
+         </children>
+      </Pane>
+      <Pane layoutX="11.0" layoutY="416.0" prefHeight="90.0" prefWidth="1013.0">
+         <children>
+            <Text layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:" textAlignment="CENTER" wrappingWidth="506.48876953125">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <TextField fx:id="descriptionField" layoutX="507.0" layoutY="5.0" prefHeight="80.0" prefWidth="418.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="11.0" layoutY="506.0" prefHeight="90.0" prefWidth="1013.0">
+         <children>
+            <Text layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image:" textAlignment="CENTER" wrappingWidth="506.48876953125">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <TextField fx:id="imageField" layoutX="506.0" layoutY="32.0" prefHeight="26.0" prefWidth="418.0" promptText="URL" />
+         </children>
+      </Pane>
+      <Pane layoutY="596.0" prefHeight="90.0" prefWidth="1030.0">
+         <children>
+            <Button fx:id="cancelButton" layoutX="804.0" layoutY="33.0" mnemonicParsing="false" onAction="#cancelButtonClicked" prefHeight="31.0" prefWidth="79.0" text="Cancel">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="addButton" layoutX="905.0" layoutY="33.0" mnemonicParsing="false" onAction="#addButtonClicked" prefHeight="31.0" prefWidth="79.0" text="Add">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="6.0" layoutY="246.0" prefHeight="90.0" prefWidth="1013.0">
+         <children>
+            <Text layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Raiser:" textAlignment="CENTER" wrappingWidth="506.48876953125">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <TextField fx:id="raiserField" layoutX="514.0" layoutY="32.0" prefHeight="26.0" prefWidth="418.0" promptText="Email" />
+         </children>
+      </Pane>
+      <Pane layoutX="6.0" layoutY="100.0" prefHeight="90.0" prefWidth="1013.0">
+         <children>
+            <Text layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ticket ID:" textAlignment="CENTER" wrappingWidth="506.48876953125">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <TextField fx:id="ticketIdField" layoutX="514.0" layoutY="32.0" prefHeight="26.0" prefWidth="418.0" promptText="ID number" />
+         </children>
+      </Pane>
+      <Pane layoutX="11.0" layoutY="170.0" prefHeight="90.0" prefWidth="1013.0">
+         <children>
+            <Text layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Raised date:" textAlignment="CENTER" wrappingWidth="506.48876953125">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <DatePicker fx:id="raisedByField" layoutX="507.0" layoutY="32.0" prefHeight="26.0" prefWidth="418.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

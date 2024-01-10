@@ -1,0 +1,155 @@
+class MaintenanceTicket {
+    status {
+        Open {
+            assign(HotelStaff ticketFixer, PriorityLevel priority, TimeEstimate timeToResolve, Manager fixApprover) / {
+                doAssign(ticketFixer, priority, timeToResolve, fixApprover);
+            } -> Assigned;
+
+            start() / {
+                rejectTicketAction("start", "open");
+            } -> Open;
+
+            complete() / {
+                rejectTicketAction("complete", "open");
+            } -> Open;
+
+            disapprove() / {
+                rejectTicketAction("disapprove", "open");
+            } -> Open;
+
+            approve() / {
+                rejectTicketAction("approve", "open");
+            } -> Open;
+        }
+        Assigned {
+            assign(HotelStaff ticketFixer, PriorityLevel priority, TimeEstimate timeToResolve, Manager fixApprover) / {
+                rejectRedundantAction("assigned");
+            } -> Assigned;
+
+            start() -> InProgress;
+
+            complete() / {
+                rejectTicketAction("complete", "assigned");
+            } -> Assigned;
+
+            disapprove() / {
+                rejectTicketAction("disapprove", "assigned");
+            } -> Assigned;
+
+            approve() / {
+                rejectTicketAction("approve", "assigned");
+            } -> Assigned;
+        }
+        InProgress {
+            assign(HotelStaff ticketFixer, PriorityLevel priority, TimeEstimate timeToResolve, Manager fixApprover) / {
+                rejectTicketAction("assign", "in progress");
+            } -> InProgress;
+
+            start() / {
+                rejectRedundantAction("in progress");
+            } -> InProgress;
+
+            complete() [hasFixApprover()] -> Resolved;
+
+            complete() [!hasFixApprover()] -> Closed;
+
+            disapprove() / {
+                rejectTicketAction("disapprove", "in progress");
+            } -> InProgress;
+
+            approve() / {
+                rejectTicketAction("approve", "in progress");
+            } -> InProgress;
+        }
+        Resolved {
+            assign(HotelStaff ticketFixer, PriorityLevel priority, TimeEstimate timeToResolve, Manager fixApprover) / {
+                rejectTicketAction("assign", "resolved");
+            } -> Resolved;
+
+            start() / {
+                rejectTicketAction("start", "resolved");
+            } -> Resolved;
+
+            complete() / {
+                rejectRedundantAction("resolved");
+            } -> Resolved;
+
+            approve() -> Closed;
+
+            disapprove(Date date, String reason, Manager fixApprover) / {
+                doDisapprove(date, reason, fixApprover);
+            } -> InProgress;
+        }
+        Closed {
+            assign(HotelStaff ticketFixer, PriorityLevel priority, TimeEstimate timeToResolve, Manager fixApprover) / {
+                rejectTicketAction("assign", "closed");
+            } -> Closed;
+
+            start() / {
+                rejectTicketAction("start", "closed");
+            } -> Closed;
+
+            complete() / {
+                rejectRedundantAction("closed");
+            } -> Closed;
+
+            disapprove() / {
+                rejectTicketAction("disapprove", "closed");
+            } -> Closed;
+
+            approve() / {
+                rejectRedundantAction("closed");
+            } -> Closed;
+        }
+    }
+
+    /**
+    * Assigns a ticket to a hotel staff with a priority level and time estimate, and optionally a
+    * manager as fix approver
+    * 
+    * @author William Wang
+    * @param ticketFixer
+    * @param priority
+    * @param timeToResolve
+    * @param fixApprover
+    */
+    private void doAssign(HotelStaff ticketFixer, PriorityLevel priority, TimeEstimate timeToResolve, Manager fixApprover) {
+        setTicketFixer(ticketFixer);
+        setPriority(priority);
+        setTimeToResolve(timeToResolve);
+        setFixApprover(fixApprover);
+    }
+
+    /**
+    * Disapprove a ticket fix, adding a maintenance note to the ticket
+    * 
+    * @author William Wang
+    * @param date
+    * @param reason
+    * @param fixApprover
+    */
+    private void doDisapprove(Date date, String reason, Manager fixApprover) {
+        addTicketNote(date, reason, fixApprover);
+    }
+
+    /**
+    * Rejects an event trigger because it shouldn't happen in a specific state
+    * 
+    * @author William Wang
+    * @param action the event called that shouldn't happen
+    * @param reason the state in which the event shouldn't happen
+    */
+    private void rejectTicketAction(String action, String reason) {
+        throw new RuntimeException("Cannot " + action + " a maintenance ticket which is " + reason + ".");
+    }
+
+    /**
+    * Rejects an event trigger because the wanted state is already the current state
+    * 
+    * @author William Wang
+    * @param reason why the event doesn't do anything
+    */
+    private void rejectRedundantAction(String reason) {
+        throw new RuntimeException("The maintenance ticket is already " + reason + ".");
+    }
+}
